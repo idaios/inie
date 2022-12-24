@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 struct ind {
@@ -12,12 +12,14 @@ struct ind {
   // belongs to one or the other population. If the individual will
   // migrate, then the membership will change, 
   int membership;
+  int *autosomes;
+  int *X;   
 } individual;
 
 
 struct pop{
   int N; // the population size
-  ind *individuals; // the individuals it carries
+  int *individuals; // the individuals it carries
   // if the fitness is absolute or relative. If the fitness is
   // relative, then what is happening is that the kids of the next
   // generation select their parents relative to the fitness value of
@@ -25,4 +27,12 @@ struct pop{
   // number of children for the next generation. 
   int relativeFitness;
 } population;
+
+struct scenario{
+  int npops; // The number of populations
+  double *migrationrates;
+  int *popsizes;
+  double *sexratio;
+  double *sexratiomig;
+} scenario;
   
